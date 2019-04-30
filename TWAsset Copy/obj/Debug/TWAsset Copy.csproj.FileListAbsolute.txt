@@ -1,0 +1,15 @@
+D:\GitHub\TWAsset Copy\TWAsset Copy\bin\Debug\TWAsset Copy.exe.config
+D:\GitHub\TWAsset Copy\TWAsset Copy\bin\Debug\TWAsset Copy.exe
+D:\GitHub\TWAsset Copy\TWAsset Copy\bin\Debug\TWAsset Copy.pdb
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\TWAsset Copy.csprojAssemblyReference.cache
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\MainWindow.g.cs
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\App.g.cs
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\TWAsset Copy_MarkupCompile.cache
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\TWAsset Copy_MarkupCompile.lref
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\MainWindow.baml
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\TWAsset Copy.g.resources
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\TWAsset_Copy.Properties.Resources.resources
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\TWAsset Copy.csproj.GenerateResource.cache
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\TWAsset Copy.csproj.CoreCompileInputs.cache
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\TWAsset Copy.exe
+D:\GitHub\TWAsset Copy\TWAsset Copy\obj\Debug\TWAsset Copy.pdb
