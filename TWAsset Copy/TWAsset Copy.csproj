@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{600F216D-7500-479B-A0FE-1316675C7C9F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TWAsset_Copy</RootNamespace>
-    <AssemblyName>TWAsset Copy</AssemblyName>
+    <RootNamespace>TWAssetCopy</RootNamespace>
+    <AssemblyName>TWAssetCopy</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
