@@ -290,14 +290,14 @@ namespace TWAsset_Copy
         {
             if (tbAssetCopyCode.Text.Length != 4)
             {
-                MessageBox.Show("Inccorect code", "Error", MessageBoxButton.OK);
+                MessageBox.Show("Incorrect code", "Error", MessageBoxButton.OK);
                 return;
             }
             foreach (string err in cbCodes.Items)
             {
                 if (err == tbAssetCopyCode.Text)
                 {
-                    MessageBox.Show("Inccorect code", "Error", MessageBoxButton.OK);
+                    MessageBox.Show("Incorrect code", "Error", MessageBoxButton.OK);
                     return;
                 }
             }
@@ -311,6 +311,14 @@ namespace TWAsset_Copy
             try
             {
                 var directories = Directory.GetDirectories(tbRootFolder.Text);
+                if(directories == null || directories.Length == 0)
+                {
+                    var AddList = new List<string>();
+                    AddList.Add(tbRootFolder.Text);
+
+                    directories = AddList.ToArray();
+
+                }
 
                 Item itm = (Item)cbAssetFamily.SelectedItem;
 
@@ -318,21 +326,24 @@ namespace TWAsset_Copy
                 {
                     var subdirectories = Directory.GetDirectories(topdir, "*", SearchOption.AllDirectories);
 
+                  if (subdirectories.Length == 0)
+                    {
+                        var AddList = new List<string>();
+                        AddList.Add(topdir);
+
+                        subdirectories = AddList.ToArray();
+                    }
+
                     foreach (var fldr in subdirectories)
                     {
                         DirectoryInfo fldrpath = new DirectoryInfo(fldr.ToString());
 
                         int filecount = Directory.EnumerateFiles(fldr).Count();
 
-                        if (filecount == 0)
-                        {
-
-                        }
                         if (filecount > 1)
                         {
                             FileInfo[] fileswithcode = fldrpath.GetFiles("*" + itm.FamilyCode + "_" + cbCodes.Text + "*");
                             string copydir = @"\\bcluster\burrows\digital\autorender\taylorwimpey\Production\Bathroom\Assets\Final\Copy";
-
 
                             if (fileswithcode.Length >= 1)
                             {
@@ -341,14 +352,34 @@ namespace TWAsset_Copy
                                 {
                                     Directory.CreateDirectory(copydir);
                                 }
+                                if (Directory.Exists(copydir))
+                                {
+                                    var previouscopy = Directory.GetFiles(copydir, "*", SearchOption.AllDirectories);
+
+                                    if (previouscopy.Length > 0)
+                                    {
+                                        MessageBox.Show("Copy Folder already exists", "Copy Folder already exists", MessageBoxButton.OK);
+                                    }
+                                }
 
                                 foreach (FileInfo f in fileswithcode)
                                 {
                                     string newname = f.Name.Replace(cbCodes.Text.ToString(), tbAssetCopyCode.Text.ToString());
+                                    string del = copydir + "\\" + newname;
+                                    FileInfo copyfile = new FileInfo(del);
 
+                                    if (!copyfile.Exists)
+                                    {
+                                        File.Copy(f.FullName, copydir + "\\" + newname);
+                                    }
+                                    if (copyfile.Exists)
+                                    {
+                                        
 
+                                        File.Delete(del);
+                                        File.Copy(f.FullName, copydir + "\\" + newname);
 
-                                    File.Copy(f.FullName, copydir + "\\" + newname);
+                                    }
 
                                 }
 
@@ -360,6 +391,7 @@ namespace TWAsset_Copy
                         }
                     }
                 }
+                MessageBox.Show("Done", "Done", MessageBoxButton.OK);
 
             }
             catch (System.Exception ex)
