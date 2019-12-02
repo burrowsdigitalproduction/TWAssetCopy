@@ -32,7 +32,7 @@ namespace TWAsset_Copy
             InitializeComponent();
 
             //Add combobox data
-            cbAssetFamily.Items.Add(new Item("Towel Rail", "R1001R1002"));
+            //cbAssetFamily.Items.Add(new Item("Towel Rail", "R1001R1002"));
             cbAssetFamily.Items.Add(new Item("Wall Tiles", "R1001R1006"));
             cbAssetFamily.Items.Add(new Item("Flooring", "R1001R1012"));
             cbAssetFamily.Items.Add(new Item("Bath Tap", "R1001R1030"));
@@ -218,14 +218,14 @@ namespace TWAsset_Copy
 
             cbCodes.Items.Clear();
 
-            if (cbAssetFamily.SelectedItem.ToString() == "Towel Rail")
-            {
-                foreach (string trad in TradCodes)
-                {
-                    cbCodes.Items.Add(trad);
-                }
-            }
-            else if (cbAssetFamily.SelectedItem.ToString() == "Wall Tiles")
+          //  if (cbAssetFamily.SelectedItem.ToString() == "Towel Rail")
+          //  {
+          //      foreach (string trad in TradCodes)
+            //    {
+           //         cbCodes.Items.Add(trad);
+           //     }
+          //  }
+            if (cbAssetFamily.SelectedItem.ToString() == "Wall Tiles")
             {
                 foreach (string walltile in WallTileCodes)
                 {
@@ -340,7 +340,7 @@ namespace TWAsset_Copy
 
                         int filecount = Directory.EnumerateFiles(fldr).Count();
 
-                        if (filecount > 1)
+                        if (filecount > 0)
                         {
                             FileInfo[] fileswithcode = fldrpath.GetFiles("*" + itm.FamilyCode + "_" + cbCodes.Text + "*");
                             string copydir = @"\\bcluster\burrows\digital\autorender\taylorwimpey\Production\Bathroom\Assets\Final\Copy";
