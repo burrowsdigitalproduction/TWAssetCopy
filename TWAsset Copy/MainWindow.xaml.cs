@@ -322,45 +322,52 @@ namespace TWAsset_Copy
 
                 Item itm = (Item)cbAssetFamily.SelectedItem;
 
+                
+                string copydir = @"\\bcluster\burrows\digital\autorender\taylorwimpey\Production\Bathroom\Assets\Final\Copy";
+
+                if (!Directory.Exists(copydir))
+                {
+                    Directory.CreateDirectory(copydir);
+                }
+                else if (Directory.Exists(copydir))
+                {
+                    var previouscopy = Directory.GetFiles(copydir, "*", SearchOption.AllDirectories);
+
+                    if (previouscopy.Length > 0)
+                    {
+                        MessageBox.Show("Copy Folder already exists", "Copy Folder already exists", MessageBoxButton.OK);
+                    }
+                }
+
                 foreach (var topdir in directories)
                 {
                     var subdirectories = Directory.GetDirectories(topdir, "*", SearchOption.AllDirectories);
 
-                  if (subdirectories.Length == 0)
-                    {
                         var AddList = new List<string>();
                         AddList.Add(topdir);
 
-                        subdirectories = AddList.ToArray();
+                     foreach (var d in subdirectories)
+                    {
+                        AddList.Add(d);
                     }
+
+                    subdirectories = AddList.ToArray();
+
 
                     foreach (var fldr in subdirectories)
                     {
                         DirectoryInfo fldrpath = new DirectoryInfo(fldr.ToString());
 
+                        FileInfo[] fileswithcode = fldrpath.GetFiles("*" + "_" + itm.FamilyCode + "_" + cbCodes.Text + "*");
+                       
+
                         int filecount = Directory.EnumerateFiles(fldr).Count();
 
                         if (filecount > 0)
                         {
-                            FileInfo[] fileswithcode = fldrpath.GetFiles("*" + itm.FamilyCode + "_" + cbCodes.Text + "*");
-                            string copydir = @"\\bcluster\burrows\digital\autorender\taylorwimpey\Production\Bathroom\Assets\Final\Copy";
 
                             if (fileswithcode.Length >= 1)
                             {
-
-                                if (!Directory.Exists(copydir))
-                                {
-                                    Directory.CreateDirectory(copydir);
-                                }
-                                if (Directory.Exists(copydir))
-                                {
-                                    var previouscopy = Directory.GetFiles(copydir, "*", SearchOption.AllDirectories);
-
-                                    if (previouscopy.Length > 0)
-                                    {
-                                        MessageBox.Show("Copy Folder already exists", "Copy Folder already exists", MessageBoxButton.OK);
-                                    }
-                                }
 
                                 foreach (FileInfo f in fileswithcode)
                                 {

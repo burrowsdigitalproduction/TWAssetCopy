@@ -18,7 +18,6 @@ D:\GitHub\TWAssetCopy\TWAsset Copy\obj\Debug\MainWindow.g.cs
 D:\GitHub\TWAssetCopy\TWAsset Copy\obj\Debug\App.g.cs
 D:\GitHub\TWAssetCopy\TWAsset Copy\obj\Debug\MainWindow.baml
 D:\GitHub\TWAssetCopy\TWAsset Copy\obj\Debug\TWAsset Copy.csproj.GenerateResource.cache
-D:\GitHub\TWAssetCopy\TWAsset Copy\obj\Debug\TWAsset Copy.csproj.CoreCompileInputs.cache
 D:\GitHub\TWAssetCopy\TWAsset Copy\bin\Debug\TWAssetCopy.exe.config
 D:\GitHub\TWAssetCopy\TWAsset Copy\bin\Debug\TWAssetCopy.exe
 D:\GitHub\TWAssetCopy\TWAsset Copy\bin\Debug\TWAssetCopy.pdb
